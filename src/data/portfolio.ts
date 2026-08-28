@@ -6,7 +6,7 @@ const shared = {
   initials: "RS",
   email: "reynardsetiawan.rs@gmail.com",
   whatsappUrl: "https://wa.me/62895351969010",
-  cvUrl: "/Reynard-Setiawan-CV.docx",
+  cvUrl: "/Reynard-Setiawan-CV.pdf",
   socials: [
     { label: "GitHub", href: "https://github.com/Reynardstw", display: "github.com/Reynardstw" },
     { label: "LinkedIn", href: "https://linkedin.com/in/reynardsetiawan-", display: "linkedin.com/in/reynardsetiawan-" },

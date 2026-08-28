@@ -40,10 +40,6 @@ export function HeroSection({ profile, cvUrl, contactId }: HeroSectionProps) {
           <strong><MapPin size={15} aria-hidden="true" /> {profile.location}</strong>
         </div>
       </div>
-      <a className="scroll-cue" href="#about-start" aria-label="Lanjut ke bagian tentang">
-        <span>Scroll</span>
-        <span className="scroll-line" />
-      </a>
     </section>
   );
 }
