@@ -1,15 +1,17 @@
 import type { Locale, PortfolioData, Project } from "@/types/portfolio";
 
 const shared = {
-  siteUrl: "https://your-domain.vercel.app",
+  siteUrl: "https://reynard-portofolio.vercel.app",
   name: "Reynard Setiawan",
   initials: "RS",
   email: "reynardsetiawan.rs@gmail.com",
   whatsappUrl: "https://wa.me/62895351969010",
   cvUrl: "/Reynard-Setiawan-CV.docx",
   socials: [
-    { label: "GitHub", href: "https://github.com/Reynardstw" },
-    { label: "LinkedIn", href: "https://linkedin.com/in/reynardsetiawan-" },
+    { label: "GitHub", href: "https://github.com/Reynardstw", display: "github.com/Reynardstw" },
+    { label: "LinkedIn", href: "https://linkedin.com/in/reynardsetiawan-", display: "linkedin.com/in/reynardsetiawan-" },
+    { label: "Email", href: "mailto:reynardsetiawan.rs@gmail.com", display: "reynardsetiawan.rs@gmail.com" },
+    { label: "WhatsApp", href: "https://wa.me/62895351969010", display: "+62 895-3519-69010" },
   ],
 };
 
@@ -26,7 +28,7 @@ type ProjectCatalogItem = Omit<Project, "period" | "role" | "description" | "ima
 const projectCatalog: ProjectCatalogItem[] = [
   {
     title: "VoxA",
-    period: { id: "Mei–Jun 2025", en: "May–Jun 2025" },
+    period: { id: "2025", en: "2025" },
     role: { id: "Frontend Developer & Integrasi AI", en: "Frontend Developer & AI Integration" },
     description: {
       id: "Aplikasi mobile untuk merekam, mentranskripsi, meringkas, dan menerjemahkan audio dengan integrasi model AI yang di-deploy secara mandiri.",
@@ -34,10 +36,17 @@ const projectCatalog: ProjectCatalogItem[] = [
     },
     technologies: ["Flutter", "Dart", "Whisper", "DistilBART", "Hugging Face"],
     repositoryUrl: "https://github.com/Reynardstw/VoxA",
+    image: {
+      src: "/projects/voxa.png",
+      alt: {
+        id: "Tampilan aplikasi VoxA pada perangkat Android",
+        en: "VoxA application preview on Android devices",
+      },
+    },
   },
   {
     title: "Iyup",
-    period: { id: "Jul–Agu 2026", en: "Jul–Aug 2026" },
+    period: { id: "2026", en: "2026" },
     role: { id: "iOS Developer", en: "iOS Developer" },
     description: {
       id: "Aplikasi iOS pencari spot teduh dengan enam model Core ML untuk forecasting lingkungan dan integrasi data sensor real-time melalui MQTT.",
@@ -107,15 +116,15 @@ export const portfolioData: Record<Locale, PortfolioData> = {
       description: "Pilihan aplikasi yang memadukan pengembangan produk, integrasi AI, mobile, dan connected systems.",
       previewLabel: "Preview aplikasi",
       liveLabel: "Lihat proyek",
-      sourceLabel: "Source code",
+      sourceLabel: "Lihat di GitHub",
       items: getProjects("id"),
     },
     journey: {
       label: "Pengalaman",
       title: "Belajar melalui tantangan nyata.",
       experience: [{
-        period: "Mar–Des 2026",
-        title: "Academy Participant",
+        period: "2026",
+        title: "iOS Developer",
         subtitle: "Apple Developer Academy @BINUS",
         location: "Tangerang",
         description: "Mengembangkan aplikasi mobile berdasarkan kebutuhan pengguna nyata melalui challenge-based learning, berkolaborasi dalam tim untuk merancang dan membangun solusi teknis dari masalah dunia nyata.",
@@ -128,7 +137,7 @@ export const portfolioData: Record<Locale, PortfolioData> = {
       emailLabel: "Email",
       email: shared.email,
       whatsappLabel: "WhatsApp",
-      whatsappAction: "Mulai percakapan",
+      whatsappAction: "+62 895-3519-69010",
       whatsappUrl: shared.whatsappUrl,
       cvUrl: shared.cvUrl,
       socials: shared.socials,
@@ -181,15 +190,15 @@ export const portfolioData: Record<Locale, PortfolioData> = {
       description: "Selected applications combining product development, AI integration, mobile, and connected systems.",
       previewLabel: "Application preview",
       liveLabel: "View project",
-      sourceLabel: "Source code",
+      sourceLabel: "View on GitHub",
       items: getProjects("en"),
     },
     journey: {
       label: "Experience",
       title: "Learning through real-world challenges.",
       experience: [{
-        period: "Mar–Dec 2026",
-        title: "Academy Participant",
+        period: "2026",
+        title: "iOS Developer",
         subtitle: "Apple Developer Academy @BINUS",
         location: "Tangerang",
         description: "Developing mobile applications around real user needs through challenge-based learning, collaborating in teams to design and build technical solutions for real-world problems.",
@@ -202,7 +211,7 @@ export const portfolioData: Record<Locale, PortfolioData> = {
       emailLabel: "Email",
       email: shared.email,
       whatsappLabel: "WhatsApp",
-      whatsappAction: "Start a conversation",
+      whatsappAction: "+62 895-3519-69010",
       whatsappUrl: shared.whatsappUrl,
       cvUrl: shared.cvUrl,
       socials: shared.socials,

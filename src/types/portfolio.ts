@@ -3,6 +3,7 @@ export type Locale = "id" | "en";
 export interface SocialLink {
   label: string;
   href: string;
+  display: string;
 }
 
 export interface NavigationItem {

@@ -48,7 +48,7 @@ export default async function LocalePage({ params }: LocalePageProps) {
 
   return (
     <div lang={locale}>
-      <SiteHeader initials={data.profile.initials} cvUrl={data.contact.cvUrl} locale={locale} navigation={data.navigation} />
+      <SiteHeader cvUrl={data.contact.cvUrl} locale={locale} navigation={data.navigation} />
       <main>
         <HeroSection profile={data.profile} cvUrl={data.contact.cvUrl} contactId={ids.contact} />
         <AboutSection about={data.about} skills={data.skills} sectionId={ids.about} />

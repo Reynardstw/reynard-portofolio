@@ -2,19 +2,18 @@ import { ArrowDownToLine } from "lucide-react";
 import type { Locale, NavigationItem } from "@/types/portfolio";
 
 interface SiteHeaderProps {
-  initials: string;
   cvUrl: string;
   locale: Locale;
   navigation: NavigationItem[];
 }
 
-export function SiteHeader({ initials, cvUrl, locale, navigation }: SiteHeaderProps) {
+export function SiteHeader({ cvUrl, locale, navigation }: SiteHeaderProps) {
   const alternateLocale = locale === "id" ? "en" : "id";
 
   return (
     <header className="site-header">
-      <a className="brand" href="#home" aria-label="Kembali ke awal">
-        {initials}<span>.</span>
+      <a className="brand" href="#home" aria-label={locale === "id" ? "Kembali ke beranda" : "Back to home"}>
+        Home<span>.</span>
       </a>
       <nav aria-label="Navigasi utama">
         {navigation.map((item) => (
