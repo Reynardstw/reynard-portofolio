@@ -31,10 +31,10 @@ const projectCatalog: ProjectCatalogItem[] = [
     period: { id: "2025", en: "2025" },
     role: { id: "Frontend Developer & Integrasi AI", en: "Frontend Developer & AI Integration" },
     description: {
-      id: "Aplikasi mobile untuk merekam, mentranskripsi, meringkas, dan menerjemahkan audio dengan integrasi model AI yang di-deploy secara mandiri.",
-      en: "A mobile application for recording, transcribing, summarizing, and translating audio using independently deployed AI models.",
+      id: "Aplikasi mobile untuk merekam, mentranskripsi, dan menerjemahkan audio dengan alur rekam–transkripsi–terjemahan yang terintegrasi dengan model AI custom yang di-deploy secara mandiri.",
+      en: "A mobile application for recording, transcribing, and translating audio through a record–transcribe–translate pipeline integrated with independently deployed custom AI models.",
     },
-    technologies: ["Flutter", "Dart", "Whisper", "DistilBART", "Hugging Face"],
+    technologies: ["Flutter", "Whisper (self-deployed)", "DistilBART"],
     repositoryUrl: "https://github.com/Reynardstw/VoxA",
     image: {
       src: "/projects/voxa.png",
@@ -47,13 +47,76 @@ const projectCatalog: ProjectCatalogItem[] = [
   {
     title: "Iyup",
     period: { id: "2026", en: "2026" },
-    role: { id: "iOS Developer", en: "iOS Developer" },
+    role: { id: "iOS Developer & Forecast ML", en: "iOS Developer & Forecast ML" },
     description: {
-      id: "Aplikasi iOS pencari spot teduh dengan enam model Core ML untuk forecasting lingkungan dan integrasi data sensor real-time melalui MQTT.",
-      en: "An iOS shade-finding application with six Core ML models for environmental forecasting and real-time MQTT sensor integration.",
+      id: "Aplikasi iOS pencari lokasi teduh dengan forecasting kondisi lingkungan berbasis enam model Core ML custom dan integrasi data sensor real-time dari perangkat ESP32 melalui MQTT.",
+      en: "An iOS shade-finding application with environmental forecasting powered by six custom Core ML models and real-time sensor integration from ESP32 devices via MQTT.",
     },
-    technologies: ["Swift", "SwiftUI", "Core ML", "MQTT", "IoT"],
+    technologies: ["Swift", "SwiftUI", "Core ML", "RealityKit", "MQTT", "MVVM"],
     repositoryUrl: "https://github.com/Reynardstw/Iyup",
+    image: {
+      src: "/projects/iyup.png",
+      alt: {
+        id: "Tampilan aplikasi Iyup, pencari lokasi teduh",
+        en: "Iyup application preview, a shade-finding app",
+      },
+    },
+  },
+  {
+    title: "Petik.in",
+    period: { id: "2026", en: "2026" },
+    role: {
+      id: "iOS Developer & Audio ML",
+      en: "iOS Developer & Audio ML",
+    },
+    description: {
+      id: "Aplikasi iOS pendeteksi progresi kunci gitar secara real-time dari audio live, dengan pipeline audio modular (input, buffering, ekstraksi fitur DSP, inferensi ML, validasi) dan model ML deteksi kunci yang dilatih sendiri.",
+      en: "An iOS application that detects guitar chord progressions in real time from live audio, built with a modular audio pipeline (input, buffering, DSP feature extraction, ML inference, validation) and a self-trained chord detection model.",
+    },
+    technologies: ["Swift", "SwiftUI", "Audio Pipeline", "DSP", "Core ML"],
+    repositoryUrl: "https://github.com/CicakBelanda/Petik.in-Guitar-Chord-Progression",
+    image: {
+      src: "/projects/petikin.png",
+      alt: {
+        id: "Ikon aplikasi Petik.in, pendeteksi progresi kunci gitar",
+        en: "Petik.in app icon, a guitar chord progression detector",
+      },
+    },
+  },
+  {
+    title: "Orange Sorting System",
+    period: { id: "2026", en: "2026" },
+    role: { id: "Embedded/Firmware Developer", en: "Embedded/Firmware Developer" },
+    description: {
+      id: "Firmware sortasi buah otomatis berbasis sensor berat dan komunikasi jaringan real-time untuk mengklasifikasikan buah secara otomatis di jalur produksi.",
+      en: "Automated fruit-sorting firmware using weight sensing and real-time network communication to classify fruit automatically on a production line.",
+    },
+    technologies: ["Embedded Swift", "ESP-IDF", "ESP32-C6", "HX711", "MQTT"],
+    image: {
+      src: "/projects/orange-sorting-system.png",
+      alt: {
+        id: "Tampilan aplikasi Erabi untuk monitoring dan grading buah jeruk",
+        en: "Erabi application preview for orange grading and monitoring",
+      },
+    },
+  },
+  {
+    title: "FoodHunt",
+    period: { id: "2025", en: "2025" },
+    role: { id: "Mobile Developer", en: "Mobile Developer" },
+    description: {
+      id: "Aplikasi pencarian restoran real-time berbasis lokasi dengan rekomendasi personal, sistem ulasan, dan elemen gamifikasi. Berperan sebagai Mobile Developer, membangun aplikasi Flutter dan mengintegrasikannya dengan backend tim.",
+      en: "A real-time, location-based restaurant discovery app with personalized recommendations, a review system, and gamification elements. Worked as Mobile Developer, building the Flutter app and integrating it with the team's backend.",
+    },
+    technologies: ["Flutter"],
+    repositoryUrl: "https://github.com/williamtheodoruswijaya/FoodHunt",
+    image: {
+      src: "/projects/foodhunt.png",
+      alt: {
+        id: "Kumpulan tampilan layar aplikasi FoodHunt",
+        en: "FoodHunt application screen previews",
+      },
+    },
   },
 ];
 
