@@ -11,7 +11,7 @@ export function AboutSection({ about, skills, sectionId }: AboutSectionProps) {
   return (
     <section id={sectionId} className="content-section">
       <span id="about-start" />
-      <SectionHeading index="01" label={about.label} title={about.title} />
+      <SectionHeading index="01" label={about.label} />
       <div className="about-copy">
         {about.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
       </div>
@@ -22,7 +22,7 @@ export function AboutSection({ about, skills, sectionId }: AboutSectionProps) {
           <span>{skills.description}</span>
         </div>
       </div>
-      <div className="skills-grid skills-grid-expanded">
+      <div className="skills-grid">
         {skills.groups.map((group) => (
           <div className="skill-group" key={group.title}>
             <h3>{group.title}</h3>

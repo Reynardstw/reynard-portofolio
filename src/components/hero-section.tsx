@@ -10,34 +10,33 @@ interface HeroSectionProps {
 export function HeroSection({ profile, cvUrl, contactId }: HeroSectionProps) {
   return (
     <section id="home" className="hero-section">
-      <div className="hero-orb hero-orb-one" />
-      <div className="hero-orb hero-orb-two" />
-      <div className="hero-copy reveal">
-        <div className="availability">
-          <span />
-          {profile.availability}
-        </div>
-        <p className="eyebrow">{profile.eyebrow}</p>
-        <h1>{profile.headline}</h1>
-        <p className="hero-summary">{profile.summary}</p>
-        <div className="hero-actions">
-          <a className="button button-primary" href={`#${contactId}`}>
-            {profile.contactAction}
-            <ArrowDownRight size={18} aria-hidden="true" />
-          </a>
-          <a className="button button-secondary" href={cvUrl} download>
-            {profile.cvAction}
-          </a>
-        </div>
+      <div className="hero-visual" aria-hidden="true">
+        <span className="hero-visual-mark">{profile.initials}</span>
       </div>
-      <div className="hero-meta reveal reveal-delay">
-        <div>
-          <span>Peran</span>
-          <strong>{profile.role}</strong>
+      <div>
+        <div className="hero-copy reveal">
+          <p className="eyebrow">{profile.eyebrow}</p>
+          <h1>{profile.headline}</h1>
+          <p className="hero-summary">{profile.summary}</p>
+          <div className="hero-actions">
+            <a className="button button-primary" href={`#${contactId}`}>
+              {profile.contactAction}
+              <ArrowDownRight size={18} aria-hidden="true" />
+            </a>
+            <a className="button button-secondary" href={cvUrl} download>
+              {profile.cvAction}
+            </a>
+          </div>
         </div>
-        <div>
-          <span>Lokasi</span>
-          <strong><MapPin size={15} aria-hidden="true" /> {profile.location}</strong>
+        <div className="hero-meta reveal reveal-delay">
+          <div>
+            <span>Peran</span>
+            <strong>{profile.role}</strong>
+          </div>
+          <div>
+            <span>Lokasi</span>
+            <strong><MapPin size={15} aria-hidden="true" /> {profile.location}</strong>
+          </div>
         </div>
       </div>
     </section>

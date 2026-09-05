@@ -1,4 +1,3 @@
-import { ArrowUpRight, Code2 } from "lucide-react";
 import Image from "next/image";
 import { SectionHeading } from "@/components/section-heading";
 import type { PortfolioData } from "@/types/portfolio";
@@ -9,11 +8,15 @@ interface ProjectsSectionProps {
 }
 
 export function ProjectsSection({ projects, sectionId }: ProjectsSectionProps) {
+  // Newest first: sort by period (year) descending so the latest work leads the grid.
+  const items = [...projects.items].sort((a, b) => Number(b.period) - Number(a.period));
+  const gridClassName = items.length % 2 !== 0 ? "projects-grid is-odd" : "projects-grid";
+
   return (
     <section id={sectionId} className="content-section">
       <SectionHeading index="02" label={projects.label} title={projects.title} description={projects.description} />
-      <div className="projects-grid">
-        {projects.items.map((project, index) => (
+      <div className={gridClassName}>
+        {items.map((project) => (
           <article className="portfolio-project" key={`${project.title}-${project.period}`}>
             <div className="portfolio-project-media">
               {project.image ? (
@@ -25,35 +28,18 @@ export function ProjectsSection({ projects, sectionId }: ProjectsSectionProps) {
                 />
               ) : (
                 <div className="project-preview-placeholder">
-                  <span>{projects.previewLabel}</span>
                   <strong>{project.title}</strong>
                 </div>
               )}
             </div>
-            <div className="portfolio-project-info">
-              <div className="portfolio-project-topline">
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <time>{project.period}</time>
-              </div>
-              <div className="portfolio-project-copy">
-                <p>{project.role}</p>
-                <h3>{project.title}</h3>
+            <div className="portfolio-project-caption">
+              <div className="portfolio-project-caption-text">
+                <p>{project.title}</p>
                 <span>{project.description}</span>
               </div>
-              <ul className="project-technologies">
-                {project.technologies.map((technology) => <li key={technology}>{technology}</li>)}
-              </ul>
-              <div className="portfolio-project-links">
-                {project.liveUrl ? (
-                  <a href={project.liveUrl} target="_blank" rel="noreferrer">
-                    {projects.liveLabel}<ArrowUpRight size={15} aria-hidden="true" />
-                  </a>
-                ) : null}
-                {project.repositoryUrl ? (
-                  <a href={project.repositoryUrl} target="_blank" rel="noreferrer">
-                    <Code2 size={15} aria-hidden="true" />{projects.sourceLabel}
-                  </a>
-                ) : null}
+              <div className="portfolio-project-caption-meta">
+                <span>{project.technologies[0]}</span>
+                <span>{project.period}</span>
               </div>
             </div>
           </article>
