@@ -15,10 +15,11 @@ const shared = {
   ],
 };
 
-type ProjectCatalogItem = Omit<Project, "period" | "role" | "description" | "image"> & {
+type ProjectCatalogItem = Omit<Project, "period" | "role" | "description" | "highlights" | "image"> & {
   period: Record<Locale, string>;
   role: Record<Locale, string>;
   description: Record<Locale, string>;
+  highlights?: Record<Locale, string[]>;
   image?: {
     src: string;
     alt: Record<Locale, string>;
@@ -33,6 +34,18 @@ const projectCatalog: ProjectCatalogItem[] = [
     description: {
       id: "Aplikasi mobile untuk merekam, mentranskripsi, dan menerjemahkan audio dengan alur rekam–transkripsi–terjemahan yang terintegrasi dengan model AI custom yang di-deploy secara mandiri.",
       en: "A mobile application for recording, transcribing, and translating audio through a record–transcribe–translate pipeline integrated with independently deployed custom AI models.",
+    },
+    highlights: {
+      id: [
+        "Membangun antarmuka Flutter untuk alur rekam, transkripsi, dan terjemahan audio.",
+        "Mengintegrasikan model Whisper yang di-deploy mandiri untuk transkripsi suara ke teks.",
+        "Menghubungkan model DistilBART untuk peringkasan hasil transkripsi.",
+      ],
+      en: [
+        "Built the Flutter interface for the record, transcribe, and translate flow.",
+        "Integrated a self-deployed Whisper model for speech-to-text transcription.",
+        "Connected a DistilBART model for summarizing transcription results.",
+      ],
     },
     technologies: ["Flutter", "Whisper (self-deployed)", "DistilBART"],
     repositoryUrl: "https://github.com/Reynardstw/VoxA",
@@ -51,6 +64,18 @@ const projectCatalog: ProjectCatalogItem[] = [
     description: {
       id: "Aplikasi iOS pencari lokasi teduh dengan forecasting kondisi lingkungan berbasis enam model Core ML custom dan integrasi data sensor real-time dari perangkat ESP32 melalui MQTT.",
       en: "An iOS shade-finding application with environmental forecasting powered by six custom Core ML models and real-time sensor integration from ESP32 devices via MQTT.",
+    },
+    highlights: {
+      id: [
+        "Merancang aplikasi iOS dengan arsitektur MVVM modular.",
+        "Melatih dan mengintegrasikan enam model Core ML untuk forecasting kondisi lingkungan.",
+        "Menghubungkan data sensor real-time dari perangkat ESP32 melalui MQTT.",
+      ],
+      en: [
+        "Designed the iOS app with a modular MVVM architecture.",
+        "Trained and integrated six Core ML models for environmental forecasting.",
+        "Connected real-time sensor data from ESP32 devices over MQTT.",
+      ],
     },
     technologies: ["Swift", "SwiftUI", "Core ML", "RealityKit", "MQTT", "MVVM"],
     repositoryUrl: "https://github.com/Reynardstw/Iyup",
@@ -73,6 +98,18 @@ const projectCatalog: ProjectCatalogItem[] = [
       id: "Aplikasi iOS pendeteksi progresi kunci gitar secara real-time dari audio live, dengan pipeline audio modular (input, buffering, ekstraksi fitur DSP, inferensi ML, validasi) dan model ML deteksi kunci yang dilatih sendiri.",
       en: "An iOS application that detects guitar chord progressions in real time from live audio, built with a modular audio pipeline (input, buffering, DSP feature extraction, ML inference, validation) and a self-trained chord detection model.",
     },
+    highlights: {
+      id: [
+        "Membangun pipeline audio modular: input, buffering, dan ekstraksi fitur DSP.",
+        "Melatih model ML sendiri untuk mendeteksi progresi kunci gitar dari audio live.",
+        "Merancang tampilan SwiftUI untuk feedback real-time saat bermain gitar.",
+      ],
+      en: [
+        "Built a modular audio pipeline: input, buffering, and DSP feature extraction.",
+        "Trained a custom ML model to detect guitar chord progressions from live audio.",
+        "Designed the SwiftUI interface for real-time feedback while playing.",
+      ],
+    },
     technologies: ["Swift", "SwiftUI", "Audio Pipeline", "DSP", "Core ML"],
     repositoryUrl: "https://github.com/CicakBelanda/Petik.in-Guitar-Chord-Progression",
     image: {
@@ -91,6 +128,18 @@ const projectCatalog: ProjectCatalogItem[] = [
       id: "Firmware sortasi buah otomatis berbasis sensor berat dan komunikasi jaringan real-time untuk mengklasifikasikan buah secara otomatis di jalur produksi.",
       en: "Automated fruit-sorting firmware using weight sensing and real-time network communication to classify fruit automatically on a production line.",
     },
+    highlights: {
+      id: [
+        "Menulis firmware Embedded Swift di atas ESP-IDF untuk ESP32-C6.",
+        "Mengintegrasikan sensor load cell HX711 untuk pengukuran berat buah.",
+        "Membangun komunikasi jaringan real-time via MQTT untuk klasifikasi grade buah.",
+      ],
+      en: [
+        "Wrote Embedded Swift firmware on top of ESP-IDF for the ESP32-C6.",
+        "Integrated an HX711 load cell sensor for fruit weight measurement.",
+        "Built real-time MQTT networking for automatic fruit grade classification.",
+      ],
+    },
     technologies: ["Embedded Swift", "ESP-IDF", "ESP32-C6", "HX711", "MQTT"],
     image: {
       src: "/projects/orange-sorting-system.png",
@@ -108,6 +157,18 @@ const projectCatalog: ProjectCatalogItem[] = [
       id: "Aplikasi pencarian restoran real-time berbasis lokasi dengan rekomendasi personal, sistem ulasan, dan elemen gamifikasi. Berperan sebagai Mobile Developer, membangun aplikasi Flutter dan mengintegrasikannya dengan backend tim.",
       en: "A real-time, location-based restaurant discovery app with personalized recommendations, a review system, and gamification elements. Worked as Mobile Developer, building the Flutter app and integrating it with the team's backend.",
     },
+    highlights: {
+      id: [
+        "Membangun aplikasi mobile Flutter untuk iOS dan Android.",
+        "Mengintegrasikan aplikasi dengan backend NestJS milik tim.",
+        "Mengerjakan fitur pencarian restoran, rekomendasi, dan ulasan pengguna.",
+      ],
+      en: [
+        "Built the Flutter mobile app for both iOS and Android.",
+        "Integrated the app with the team's NestJS backend.",
+        "Worked on restaurant discovery, recommendations, and the review feature.",
+      ],
+    },
     technologies: ["Flutter"],
     repositoryUrl: "https://github.com/williamtheodoruswijaya/FoodHunt",
     image: {
@@ -121,11 +182,12 @@ const projectCatalog: ProjectCatalogItem[] = [
 ];
 
 function getProjects(locale: Locale): Project[] {
-  return projectCatalog.map(({ period, role, description, image, ...project }) => ({
+  return projectCatalog.map(({ period, role, description, highlights, image, ...project }) => ({
     ...project,
     period: period[locale],
     role: role[locale],
     description: description[locale],
+    highlights: highlights ? highlights[locale] : undefined,
     image: image ? { src: image.src, alt: image.alt[locale] } : undefined,
   }));
 }
@@ -180,6 +242,9 @@ export const portfolioData: Record<Locale, PortfolioData> = {
       previewLabel: "Preview aplikasi",
       liveLabel: "Lihat proyek",
       sourceLabel: "Lihat di GitHub",
+      highlightsLabel: "Yang dikerjakan",
+      stackLabel: "Teknologi",
+      closeLabel: "Tutup",
       items: getProjects("id"),
     },
     journey: {
@@ -254,6 +319,9 @@ export const portfolioData: Record<Locale, PortfolioData> = {
       previewLabel: "Application preview",
       liveLabel: "View project",
       sourceLabel: "View on GitHub",
+      highlightsLabel: "What I worked on",
+      stackLabel: "Technology",
+      closeLabel: "Close",
       items: getProjects("en"),
     },
     journey: {

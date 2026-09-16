@@ -30,6 +30,7 @@ export interface Project {
   period: string;
   role: string;
   description: string;
+  highlights?: string[];
   technologies: string[];
   image?: {
     src: string;
@@ -73,6 +74,9 @@ export interface PortfolioData {
     previewLabel: string;
     liveLabel: string;
     sourceLabel: string;
+    highlightsLabel: string;
+    stackLabel: string;
+    closeLabel: string;
     items: Project[];
   };
   journey: {
