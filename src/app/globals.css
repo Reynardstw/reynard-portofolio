@@ -168,8 +168,7 @@ footer {
 }
 
 .hero-section {
-  min-height: 100svh;
-  padding: 96px 0 0;
+  padding: 72px 0 0;
   display: grid;
   grid-template-columns: minmax(0, 46%) 1fr;
   position: relative;
@@ -233,7 +232,7 @@ footer {
 .hero-copy h1 {
   max-width: 620px;
   margin: 14px 0 24px;
-  font-size: clamp(32px, 3.6vw, 52px);
+  font-size: clamp(24px, 2.4vw, 32px);
   line-height: 1.08;
   letter-spacing: -.045em;
   font-weight: 700;
@@ -356,7 +355,7 @@ footer {
 .contact-section h2 {
   max-width: 800px;
   margin: 18px 0 0;
-  font-size: clamp(32px, 5vw, 64px);
+  font-size: clamp(20px, 2.4vw, 28px);
   line-height: 1;
   letter-spacing: -.045em;
   font-weight: 700;
@@ -497,7 +496,6 @@ footer {
   align-items: center;
   justify-content: center;
   color: #fff;
-  border-bottom: 1px solid var(--border);
 }
 
 .projects-grid.is-odd>.portfolio-project:first-child .portfolio-project-media {
